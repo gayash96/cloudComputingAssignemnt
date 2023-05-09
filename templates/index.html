@@ -2,21 +2,29 @@
 <head>
     <title>CrickCenter-It's all about Cricket</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <html>
    <body>
      <main>
         <div class="px-4 py-3 my-2 text-center">
-            <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
-            <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+            <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/cricket-player-logo.jpg') }}" alt="Cricketer Logo" width="192" height="192"/>
             <h1 class="display-6 fw-bold text-primary">Welcome to Crick Center</h1>            
         </div>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
                   <a href="{{url_for('liveScores')}}">  
-                    <input type="submit"/>  
+                    <input type="submit" value="Current Matches"/>  
                    </a>
-                </div>            
+                </div> 
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
+                  <a href="{{url_for('scoreBoard')}}">  
+                    <input type="submit" value="Score Board"/>  
+                   </a>
+                </div>   
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
+                  <a href="{{url_for('liveScores')}}">  
+                    <input type="submit" value="Upcoming Matches"/>  
+                   </a>
+                </div>                               
             </div>
         </form>
      </main>      

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Current Cricket Matches</title>
+    <title>Score Board</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Current Cricket Matches</h1>
+    <h1>Crick Scores</h1>
     {% if matches %}
         <ul>
             {% for match in matches %}
@@ -13,14 +13,15 @@
                     <span>{{ match['name'] }}</span>
                     <span>vs</span>
                     <span>{{ match['status'] }}</span>
-                    <span>({{ match['venue'] }})</span>
+                    <span>({{ match['score'] }})</span>
 					<span>({{ match['date'] }})</span>
-                     <span>{{ match['score'] }}</span>
+                    <span>{{ match['matchType'] }}</span>
+                    <span>({{ match['ms'] }})</span>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No current matches.</p>
+        <p>No Match Data available now, we will fix the issue soon.</p>
     {% endif %}
 </body>
 </html>
