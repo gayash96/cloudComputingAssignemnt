@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upcoming Matches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upcoming Matches</h1>
+    {% if matches %}
+        <ul>
+            {% for match in matches %}
+                {% if match['status'] == 'Match not started' %}
+                    <li>
+                        <span>{{ match['name'] }}</span>
+                        <span>({{ match['date'] }})</span>
+                        <span>{{ match['matchType'] }}</span>
+                        <span>{{ match['status'] }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Match Data available now, we will fix the issue soon.</p>
+    {% endif %}
+</body>
+</html>

@@ -11,9 +11,9 @@
             {% for match in matches %}
                 <li>
                     <span>{{ match['name'] }}</span>
+                    <span>({{ match['date'] }})</span>
                     <span>{{ match['status'] }}</span>
                     <span>({{ match['venue'] }})</span>
-					<span>({{ match['date'] }})</span>
                      <span>{{ match['score'] }}</span>
                 </li>
             {% endfor %}
