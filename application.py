@@ -64,5 +64,18 @@ def index():
    print('Request for index page received')
    return render_template('index.html')
 
+@application.route('/liveScores/venue_weather/<venue>')
+def weather(venue):
+   city = str(venue)
+   url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=080acdfd2e43c709c852fa5073c6b36d'
+   response = urllib.request.urlopen(url, cafile=certifi.where())
+   data = json.loads(response.read().decode())
+   location = data['name']
+   temperature = round(float(data['main']['temp'])/10, 2)
+   weather = data['weather'][0]['description']
+   weather_icon = f"http://openweathermap.org/img/wn/{data['weather'][0]['icon']}.png"
+
+   return render_template('weather.html', location=location, temperature=temperature, weather=weather, weather_icon=weather_icon)
+
 if __name__ == '__main__':
    application.run()

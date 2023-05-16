@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Information</title>
+    <style>
+        .weather-container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .weather-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-container">
+        <h1>Live Weather Information</h1>
+        <p><strong>Location:</strong> {{ location }}</p>
+        <p><strong>Temperature:</strong> {{ temperature }}°C</p>
+        <p><strong>Weather:</strong> {{ weather }}</p>
+        <img class="weather-icon" src="{{ weather_icon }}" alt="Weather Icon">
+    </div>
+</body>
+</html>

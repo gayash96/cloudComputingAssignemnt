@@ -13,8 +13,10 @@
                     <span>{{ match['name'] }}</span>
                     <span>({{ match['date'] }})</span>
                     <span>{{ match['status'] }}</span>
-                    <span>({{ match['venue'] }})</span>
-                     <span>{{ match['score'] }}</span>
+                    {% set venue_parts = match['venue'].split(',') %}
+                    {% set venue_param = venue_parts[1].strip() %}
+                    <span><a href="{{ url_for('weather', venue=venue_param) }}">{{ match['venue'] }}</a></span>
+                    <span>{{ match['score'] }}</span>
                 </li>
             {% endfor %}
         </ul>
