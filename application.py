@@ -71,7 +71,7 @@ def weather(venue):
    response = urllib.request.urlopen(url, cafile=certifi.where())
    data = json.loads(response.read().decode())
    location = data['name']
-   temperature = round(float(data['main']['temp'])/10, 2)
+   temperature = data['main']['temp']
    weather = data['weather'][0]['description']
    weather_icon = f"http://openweathermap.org/img/wn/{data['weather'][0]['icon']}.png"
 
