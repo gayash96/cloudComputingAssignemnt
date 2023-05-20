@@ -75,7 +75,23 @@ def weather(venue):
    weather = data['weather'][0]['description']
    weather_icon = f"http://openweathermap.org/img/wn/{data['weather'][0]['icon']}.png"
 
-   return render_template('weather.html', location=location, temperature=temperature, weather=weather, weather_icon=weather_icon)
+   forecast_url = f'http://api.openweathermap.org/data/2.5/forecast?q={city}&appid=080acdfd2e43c709c852fa5073c6b36d'
+   forecast_response = urllib.request.urlopen(forecast_url, cafile=certifi.where())
+   forecast_data = json.loads(forecast_response.read().decode())
+   forecast_list = forecast_data['list']
+   forecast_data = []
+   for forecast in forecast_list:
+        forecast_time = forecast['dt_txt']
+        temperature = forecast['main']['temp']
+        weather_description = forecast['weather'][0]['description']
+        forecast_data.append({
+            'time': forecast_time,
+            'temperature': temperature,
+            'description': weather_description
+        })
+
+
+   return render_template('weather.html', location=location, temperature=temperature, weather=weather, weather_icon=weather_icon, forecast_data=forecast_data)
 
 if __name__ == '__main__':
    application.run()

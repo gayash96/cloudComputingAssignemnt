@@ -26,5 +26,17 @@
         <p><strong>Weather:</strong> {{ weather }}</p>
         <img class="weather-icon" src="{{ weather_icon }}" alt="Weather Icon">
     </div>
+    <h1>Weather Forecast</h1>
+    <ul>
+    {% for forecast in forecast_data %}
+    <div class="weather-container">
+        <li>
+            <p>Time: {{ forecast.time }}</p>
+            <p>Temperature: {{ forecast.temperature }} K</p>
+            <p>Description: {{ forecast.description }}</p>
+        </li>
+    </div>
+    {% endfor %}
+    </ul>
 </body>
 </html>
