@@ -24,3 +24,9 @@ pip install -r requirements.txt
 ```sh
 flask run
 ```
+
+To deploy this application in Elastic Beanstalk, follow below steps,
+
+1. Get the zip file of the repo.
+
+2. Upload the zip file to your python environemnt.
